@@ -2,8 +2,11 @@ const token = process.env.TOKEN;
 
 const fs = require('fs');
 const request = require("request");
-let Bot = require('node-telegram-bot-api');
+
 const nodemailer = require('nodemailer');
+
+let Bot = require('node-telegram-bot-api');
+
 let bot,
 mailTo = '';
 
@@ -68,7 +71,7 @@ bot.on('message', function (msg) {
       request({encoding: null, uri: link}, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           sendMail(mailTo, {name: fileName, body: body}).then(() => {
-            bot.sendMessage(msg.chat.id, `Book ${msg.document.caption || fileName} to ${mailTo} was send`);
+            bot.sendMessage(msg.chat.id, `Book ${msg.document.caption || fileName} was send to ${mailTo}`);
           }).catch((err) => {
             console.error(err);
           })
