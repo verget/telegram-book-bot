@@ -1,0 +1,22 @@
+{
+  "name": "book-bot",
+  "version": "1.0.0",
+  "description": "Book sending telegram bot on the Heroku using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "export $(cat .env | xargs) && node index.js",
+    "set_env": "export $(cat .env | xargs)",
+    "start_win": "env.cmd && node index.js",
+    "set_env_win": "env.cmd",
+    "switch_to_dev": "export $(cat .env | xargs) && wget --spider https://api.telegram.org/bot$TOKEN/setWebhook?url= --delete-after && node index.js"
+  },
+  "author": "verget",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "node-telegram-bot-api": "^0.21.1",
+    "nodemailer": "^4.0.1"
+  }
+}
