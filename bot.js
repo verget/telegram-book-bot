@@ -44,7 +44,6 @@ let sendMail = (mailTo, file) => {
     };
     transporter.sendMail(message, (error, info) => {
       if (error) {
-        console.log('Error: ');
         console.error(error);
         return reject(error);
       }
@@ -56,7 +55,7 @@ let sendMail = (mailTo, file) => {
 
 bot.on('message', function (msg) {
   console.log(msg);
-  if (msg.from.username === 'to_verge') {
+  if (msg.from.username === 'to_verge') { //hardcoded because only I and my wife use this bot =)
     mailTo = 'verget@pbsync.com'
   } else if (msg.from.username === 'doesitoffendme') {
     mailTo = 'margaritasinyuk@kindle.com'
@@ -67,7 +66,6 @@ bot.on('message', function (msg) {
     let fileName = msg.document.file_name;
     let fileId = msg.document.file_id;
     bot.getFileLink(fileId).then((link) => {
-      console.log(link);
       request({encoding: null, uri: link}, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           sendMail(mailTo, {name: fileName, body: body}).then(() => {
