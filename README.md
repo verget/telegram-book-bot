@@ -1,6 +1,5 @@
 # Telegram Book Sender
 
-Very simple book-sender-tg-bot, created for send book files from telegram chat to e-book cross email sync. 
 Developed with `node-telegram-bot-api` from https://github.com/yagop/node-telegram-bot-api
 Hosted on heroku
 
