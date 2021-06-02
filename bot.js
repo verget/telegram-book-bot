@@ -1,16 +1,15 @@
 const token = process.env.TOKEN;
 
-const fs = require('fs');
-const request = require("request");
+const request = require('request');
 
 const nodemailer = require('nodemailer');
 
 let Bot = require('node-telegram-bot-api');
 
 let bot,
-mailTo = '';
+  mailTo = '';
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   bot = new Bot(token);
   bot.setWebHook(process.env.HEROKU_URL + bot.token);
 } else {
@@ -54,26 +53,25 @@ let sendMail = (mailTo, file) => {
 }
 
 bot.on('message', function (msg) {
-  console.log(msg);
   if (msg.from.username === 'to_verge') { //hardcoded because only I and my wife use this bot =)
-    mailTo = 'verget@pbsync.com'
+    mailTo = 'verget49+amazon_sorpme@kindle.com' // verget@pbsync.com for 
   } else if (msg.from.username === 'doesitoffendme') {
     mailTo = 'margaritasinyuk@kindle.com'
   } else {
     return false;
   }
-  if (msg.document){
+  if (msg.document) {
     let fileName = msg.document.file_name;
     let fileId = msg.document.file_id;
     bot.getFileLink(fileId).then((link) => {
-      request({encoding: null, uri: link}, (error, response, body) => {
+      request({ encoding: null, uri: link }, (error, response, body) => {
         if (!error && response.statusCode == 200) {
-          sendMail(mailTo, {name: fileName, body: body}).then(() => {
+          sendMail(mailTo, { name: fileName, body: body }).then(() => {
             bot.sendMessage(msg.chat.id, `Book ${msg.document.caption || fileName} was send to ${mailTo}`);
           }).catch((err) => {
             console.error(err);
           })
-        }else{
+        } else {
           console.error(error);
           return false;
         }
