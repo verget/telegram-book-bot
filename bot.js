@@ -1,4 +1,4 @@
-const telegramToken = process.env.TELEGRAM_TOKEN;
+const telegramToken = process.env.TELEGRAM_KEY;
 
 const request = require('request');
 
