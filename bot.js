@@ -53,10 +53,10 @@ let sendMail = (mailTo, file) => {
 }
 
 bot.on('message', function (msg) {
-  if (msg.from.username === 'to_verge') { //hardcoded because only I and my wife use this bot =)
+  if (msg.from.username === 'to_verge') { // hardcoded because only I and my wife use this bot =)
     mailTo = 'verget49+amazon_sorpme@kindle.com' // verget@pbsync.com for 
   } else if (msg.from.username === 'doesitoffendme') {
-    mailTo = 'margaritasinyuk@kindle.com'
+    mailTo = 'margaritasinyuk_K64wlW@kindle.com'
   } else {
     return false;
   }
