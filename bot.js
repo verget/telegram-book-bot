@@ -11,8 +11,9 @@ let bot,
 
 if (process.env.NODE_ENV === 'production') {
   bot = new Bot(telegramToken);
-  console.log('Setting webhook on ', process.env.EXTERNAL_URL + telegramToken)
-  bot.setWebHook(process.env.EXTERNAL_URL + telegramToken);
+  console.log(process.env.TELEGRAM_KEY)
+  console.log('Setting webhook on ', process.env.EXTERNAL_URL + process.env.TELEGRAM_KEY)
+  bot.setWebHook(process.env.EXTERNAL_URL + process.env.TELEGRAM_KEY);
 } else {
   bot = new Bot(telegramToken, { polling: true });
 }
