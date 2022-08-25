@@ -12,6 +12,7 @@ let bot,
 if (process.env.NODE_ENV === 'production') {
   bot = new Bot(telegramToken);
   console.log(telegramToken)
+  console.log(process.env)
   console.log(`${process.env.URL}/.netlify/functions/update`)
   bot.setWebHook(`${process.env.URL}/.netlify/functions/update`);
 } else {
