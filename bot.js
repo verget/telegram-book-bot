@@ -1,4 +1,4 @@
-const token = process.env.TOKEN;
+const token = process.env.TELEGRAM_TOKEN;
 
 const request = require('request');
 
