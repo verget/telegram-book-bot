@@ -1,4 +1,4 @@
-const token = process.env.TELEGRAM_TOKEN;
+const telegramToken = process.env.TELEGRAM_TOKEN;
 
 const request = require('request');
 
@@ -10,11 +10,11 @@ let bot,
   mailTo = '';
 
 if (process.env.NODE_ENV === 'production') {
-  bot = new Bot(token);
-  console.log('Setting webhook on ', process.env.EXTERNAL_URL + bot.token)
-  bot.setWebHook(process.env.EXTERNAL_URL + bot.token);
+  bot = new Bot(telegramToken);
+  console.log('Setting webhook on ', process.env.EXTERNAL_URL + telegramToken)
+  bot.setWebHook(process.env.EXTERNAL_URL + telegramToken);
 } else {
-  bot = new Bot(token, { polling: true });
+  bot = new Bot(telegramToken, { polling: true });
 }
 
 let transporter = nodemailer.createTransport({
