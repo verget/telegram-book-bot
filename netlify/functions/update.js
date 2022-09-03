@@ -8,6 +8,9 @@ exports.handler = async (event) => {
   if (message.document) {
     try {
       const fileData = await getFile(message.document.file_id)
+      if (fileData) {
+        // sendToEmail
+      }
       console.log(fileData)
     } catch (error) {
       console.error(error)
