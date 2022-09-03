@@ -1,4 +1,4 @@
-const telegramToken = process.env.TELEGRAM;
+const telegramToken = process.env.BOT_TOKEN;
 
 const request = require('request');
 
@@ -11,10 +11,7 @@ let bot,
 
 if (process.env.NODE_ENV === 'production') {
   bot = new Bot(telegramToken);
-  console.log(telegramToken)
-  console.log(process.env)
-  console.log(`${process.env.URL}/.netlify/functions/update`)
-  bot.setWebHook(`${process.env.URL}/.netlify/functions/update`);
+  // bot.setWebHook(`${process.env.URL}/.netlify/functions/update`);
 } else {
   bot = new Bot(telegramToken, { polling: true });
 }
