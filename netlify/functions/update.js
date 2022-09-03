@@ -17,9 +17,9 @@ exports.handler = async (event) => {
     try {
       const fileData = await getFile(message.document.file_id)
       if (fileData) {
-        sendEmail(mailTo, message.document.file_name, fileData)
+        await sendEmail(mailTo, message.document.file_name, fileData)
+        await sendMessage(message.chat.id, `Book ${message.document.file_name} was send to ${mailTo}`);
       }
-      console.log(fileData)
     } catch (error) {
       console.error(error)
     }

@@ -15,7 +15,7 @@ module.exports = async (mailTo, file_name, file_content) => {
     from: `"Book Sender" <${process.env.MAIL_BOX}>`, // sender address
     to: mailTo, // list of receivers
     subject: 'New book', // Subject line
-    text: 'New book ' + file.name, // plain text body
+    text: 'New book ' + file_name, // plain text body
     attachments: [
       {
         filename: file_name,
