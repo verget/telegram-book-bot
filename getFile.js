@@ -8,6 +8,7 @@ module.exports = async (file_id) => {
     const path = response?.data?.result?.file_path
     if (path) {
       const fileResponse = await axios.get(`https://api.telegram.org/file/bot${process.env.BOT_TOKEN}/${path}`);
+      console.log(fileResponse)
       return fileResponse.data
     }
     return null
