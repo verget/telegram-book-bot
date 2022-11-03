@@ -8,10 +8,10 @@ module.exports = async (mailTo, file_name, file_content) => {
     auth: {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS
-    }
+    },
+    logger: true,
+    debug: true
   });
-  console.log(process.env.MAIL_USER)
-  console.log(transporter.sendMail)
 
   let message = {
     from: `"Book Sender" <${process.env.MAIL_BOX}>`, // sender address

@@ -23,9 +23,8 @@ exports.handler = async (event) => {
         await sendMessage(message.chat.id, `Book ${message.document.file_name} was send to ${mailTo}`);
       }
     } catch (error) {
-      console.error(error)
+      console.error('update.js line 26', error)
     }
   }
-  console.log('statusCode')
   return { statusCode: 200 }
 }
