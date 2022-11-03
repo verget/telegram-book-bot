@@ -3,7 +3,6 @@ const sendEmail = require("../../sendEmail")
 const getFile = require("../../getFile")
 
 exports.handler = async (event) => {
-  return { statusCode: 200 }
   console.log("Message received ", event.body)
   const { message } = JSON.parse(event.body);
   await sendMessage(message.chat.id, "I got your message!");
