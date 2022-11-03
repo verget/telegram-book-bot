@@ -9,7 +9,6 @@ module.exports = async (mailTo, file_name, file_content) => {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS
     },
-    logger: true,
     debug: true
   });
 
@@ -26,6 +25,4 @@ module.exports = async (mailTo, file_name, file_content) => {
     ]
   };
   return transporter.sendMail(message)
-    .then(info => resolve(info))
-    .catch(error => reject(error))
 };
