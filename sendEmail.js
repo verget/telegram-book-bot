@@ -10,8 +10,6 @@ module.exports = async (mailTo, file_name, file_content) => {
       pass: process.env.MAIL_PASS
     }
   });
-  console.log(process.env.MAIL_USER)
-  console.log(process.env.MAIL_PASS)
 
   let message = {
     from: `"Book Sender" <${process.env.MAIL_BOX}>`, // sender address
