@@ -2,14 +2,13 @@ const nodemailer = require('nodemailer');
 
 module.exports = async (mailTo, file_name, file_content) => {
   let transporter = nodemailer.createTransport({
-    host: 'smtp.yandex.ru',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true, // secure:true for port 465, secure:false for port 587
     auth: {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS
-    },
-    debug: true
+    }
   });
 
   let message = {
