@@ -26,5 +26,6 @@ exports.handler = async (event) => {
       console.error(error)
     }
   }
+  console.log('statusCode')
   return { statusCode: 200 }
 }
