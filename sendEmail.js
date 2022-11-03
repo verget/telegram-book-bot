@@ -10,6 +10,8 @@ module.exports = async (mailTo, file_name, file_content) => {
       pass: process.env.MAIL_PASS
     }
   });
+  console.log(process.env.MAIL_USER)
+  console.log(transporter.sendMail)
 
   let message = {
     from: `"Book Sender" <${process.env.MAIL_BOX}>`, // sender address
@@ -23,15 +25,7 @@ module.exports = async (mailTo, file_name, file_content) => {
       }
     ]
   };
-
-  return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) => {
-      if (error) {
-        console.error(error);
-        return reject(error);
-      }
-      console.log('Message %s sent: %s', info.messageId, info.response);
-      return resolve();
-    })
-  })
+  return transporter.sendMail(message)
+    .then(info => resolve(info))
+    .catch(error => reject(error))
 };

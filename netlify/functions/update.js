@@ -16,7 +16,7 @@ exports.handler = async (event) => {
     }
     try {
       const fileData = await getFile(message.document.file_id)
-      console.log('File path received')
+      console.log('File path received, sending to ', mailTo)
       if (fileData) {
         await sendEmail(mailTo, message.document.file_name, fileData)
         console.log(`Book ${message.document.file_name} was send to ${mailTo}`)
