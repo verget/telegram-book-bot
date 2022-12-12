@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
-    "node-telegram-bot-api": "^0.21.1",
-    "nodemailer": "^4.0.1"
+    "nodemailer": "4.7.0"
   }
 }
