@@ -5,7 +5,7 @@ const getFile = require("../../getFile")
 exports.handler = async (event) => {
   console.log("Message received ", event.body)
   const { message } = JSON.parse(event.body);
-  await sendMessage(message.chat.id, "I got your message!");
+  // await sendMessage(message.chat.id, "I got your message!");
   if (message.from.username === 'to_verge') { // hardcoded because only I and my wife use this bot =)
     mailTo = 'verget49+amazon_sorpme@kindle.com' // verget49+amazon_sorpme@kindle.com
   } else if (message.from.username === 'doesitoffendme') {
