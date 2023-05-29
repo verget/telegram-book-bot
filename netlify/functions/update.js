@@ -7,7 +7,7 @@ exports.handler = async (event) => {
   const { message } = JSON.parse(event.body);
   // await sendMessage(message.chat.id, "I got your message!");
   if (message.from.username === 'to_verge') { // hardcoded because only I and my wife use this bot =)
-    mailTo = 'verget49+amazon2_i06gsb@kindle.com' // verget49+amazon_sorpme@kindle.com
+    mailTo = 'verget49+amazon_sorpme@kindle.com' //  verget49+amazon2_i06gsb@kindle.com
   } else if (message.from.username === 'doesitoffendme') {
     mailTo = 'margaritasinyuk_K64wlW@kindle.com'
   } else {
@@ -15,7 +15,7 @@ exports.handler = async (event) => {
   }
   if (message.document) {
     if (message.from.username === 'to_verge') { // hardcoded because only I and my wife use this bot =)
-      mailTo = 'verget49+amazon2_i06gsb@kindle.com' // verget49+amazon_sorpme@kindle.com
+      mailTo = 'verget49+amazon_sorpme@kindle.com' //  verget49+amazon2_i06gsb@kindle.com
     } else if (message.from.username === 'doesitoffendme') {
       mailTo = 'margaritasinyuk_K64wlW@kindle.com'
     } else {
