@@ -2,25 +2,22 @@ const sendMessage = require("../../sendMessage")
 const sendEmail = require("../../sendEmail")
 const getFile = require("../../getFile")
 
+const mailList = {
+  'to_verge': 'verget49+amazon_sorpme@kindle.com',
+  'doesitoffendme': 'margaritasinyuk_K64wlW@kindle.com',
+  'risya_musya': 'verget49+amazon2_i06gsb@kindle.com'
+}
+
 exports.handler = async (event) => {
   console.log("Message received ", event.body)
   const { message } = JSON.parse(event.body);
   // await sendMessage(message.chat.id, "I got your message!");
-  if (message.from.username === 'to_verge') { // hardcoded because only I and my wife use this bot =)
-    mailTo = 'verget49+amazon_sorpme@kindle.com' //  verget49+amazon2_i06gsb@kindle.com
-  } else if (message.from.username === 'doesitoffendme') {
-    mailTo = 'margaritasinyuk_K64wlW@kindle.com'
+  if (mailList[message.from.username]) { // hardcoded because only I and my wife use this bot =)
+    mailTo = mailList[message.from.username]
   } else {
     return false;
   }
   if (message.document) {
-    if (message.from.username === 'to_verge') { // hardcoded because only I and my wife use this bot =)
-      mailTo = 'verget49+amazon_sorpme@kindle.com' //  verget49+amazon2_i06gsb@kindle.com
-    } else if (message.from.username === 'doesitoffendme') {
-      mailTo = 'margaritasinyuk_K64wlW@kindle.com'
-    } else {
-      return false;
-    }
     try {
       const fileData = await getFile(message.document.file_id)
       console.log('File path received, sending to ', mailTo)
